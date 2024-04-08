@@ -1,19 +1,19 @@
-<!-- Define a function to render the location -->
-<% function renderLocation(location) { %>
+<!-- Define a function to render the contact -->
+<% function renderContact(contact) { %>
   <div class="item-details">
     <article>
-      <h2>Title: <%= location.title %></h2>
-      <div><%= location.description %></div>
+      <h2>Title: <%= contact.title %></h2>
+      <div><%= contact.description %></div>
       <p>
-        <strong>Target Date:</strong> <%= formatDate(location.targetDate) %><br />
-        <strong>Achieved:</strong> <%= location.achieved %>
+        <strong>Target Date:</strong> <%= formatDate(contact.targetDate) %><br />
+        <strong>Achieved:</strong> <%= contact.achieved %>
       </p>
   
       <!-- Update button -->
       <form
         class="action-form"
         method="GET"
-        action="/single-location/update/<%= location._id %>"
+        action="/single-contact/update/<%= contact._id %>"
       >
         <button type="submit" class="update">update</button>
       </form>
@@ -22,7 +22,7 @@
       <form
         class="action-form"
         method="POST"
-        action="/single-location/<%= location._id %>?_method=DELETE"
+        action="/single-contact/<%= contact._id %>?_method=DELETE"
       >
         <button type="submit">delete</button>
       </form>
@@ -43,7 +43,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <!-- Pass a JavaScript variable to a partial in EJS -->
-  <%- include('partials/head.ejs', { title: location.title }) %>
+  <%- include('partials/head.ejs', { title: contact.title }) %>
   <body>
     <%- include('partials/navbar.ejs') %>
 
@@ -51,8 +51,8 @@
     <div class="content">
       <div class="home">
         <div class="item-list">
-          <% if (location) { %> <%= renderLocation(location) %> <% } else { %>
-          <p>No location found.</p>
+          <% if (contact) { %> <%= renderContact(contact) %> <% } else { %>
+          <p>No contact found.</p>
           <% } %>
         </div>
       </div>
